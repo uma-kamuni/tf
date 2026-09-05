@@ -9,7 +9,7 @@ resource "aws_instance" "public_instance" {
         Name = "public_instance"
     
     }
-    user_data = file("/root/tf/Modules/EC2/user_data.sh")
+    user_data = file("/root/tf/Modules/module/EC2/user_data.sh")
 }
 
 resource "aws_instance" "private_instance" {
@@ -22,5 +22,5 @@ resource "aws_instance" "private_instance" {
         Name = "private_instance"
     
     }
-    user_data = file("/root/tf/Modules/modules/EC2/user_data.sh")
+    user_data = file("/root/tf/Modules/module/EC2/user_data.sh")
 }
