@@ -40,7 +40,7 @@ resource "aws_eip" "my_eip" {
 
 resource "aws_nat_gateway" "my_nat_gw" {
     allocation_id = aws_eip.my_eip.id
-    subnet_id = aws_subnet.my_public_subnet.id
+    subnet_id = aws_subnet.public_subnet.id
     tags = {
         Name = "my_nat_gw"
     }
@@ -55,7 +55,7 @@ resource "aws_route_table" "public_rt" {
 }
 
 resource "aws_route_table_association" "public_rt_association" {
-    subnet_id = aws_subnet.my_public_subnet.id
+    subnet_id = aws_subnet.public_subnet.id
     route_table_id = aws_route_table.public_rt.id
 }   
 
@@ -68,7 +68,7 @@ resource "aws_route_table" "private_rt" {
 }       
 
 resource "aws_route_table_association" "private_rt_association" {
-    subnet_id = aws_subnet.my_private_subnet.id
+    subnet_id = aws_subnet.private_subnet.id
     route_table_id = aws_route_table.private_rt.id
 }  
 
